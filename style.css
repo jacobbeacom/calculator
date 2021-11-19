@@ -72,6 +72,13 @@ body {
     padding: 0px;
 }
 
+#equals {
+    width: 32%;
+    height: 25%;
+    padding: 0px;
+    
+}
+
 ul {
     width: 100%;
     height: 100%;

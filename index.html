@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="scripts.js" ></script>
 </head>
 <body>
     <div class="container">
         <div class="displayArea">
-            <p class="display">80085</p>
+            <p id="previousInput"></p>
+            <p class="display" id="display"></p>
         </div>
         <button class="clear">CLEAR</button>
         <div class="numbers">
@@ -25,7 +27,7 @@
             <button class="number">3</button>
             <button class="number">.</button>
             <button class="number">0</button>
-            <button class="number">=</button>
+            <button id="equals">=</button>
         </div>
         <div class="operators">
             <ul>
