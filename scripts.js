@@ -109,6 +109,7 @@ const equalsButton = document.getElementById('equals');
     altDisp.textContent = "";
     let newOperator = operator.replace(/["']/g, "");
     let result = operate(num1, num2, newOperator);
+    num1 = result;
     disp.textContent = result;
     
 });
