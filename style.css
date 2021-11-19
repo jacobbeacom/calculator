@@ -1,0 +1,89 @@
+body {
+    background-color: slategrey;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+
+}
+
+.container {
+    background-color:silver;
+    display: grid;
+    border: 3px;
+    border-color: black;
+    border-style: ridge;
+    grid-template-columns: 4;
+    grid-template-rows: 6;
+    width: 400px;
+    height: 600px;
+
+
+}
+
+.displayArea {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: snow;
+    display:grid;
+    grid-template-columns: subgrid;
+    padding: 25px 25px 0px 25px;
+
+
+}
+
+.display {
+    align-self: end;
+    justify-self: right;
+    font-size: 40pt;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin: 0px;
+}
+
+.clear {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column: 1/4;
+}
+
+.numbers {
+    grid-row-start: 3;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.operators {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 6;
+
+}
+
+.number {
+    width: 32%;
+    height: 25%;
+    padding: 0px;
+}
+
+ul {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+li {
+    height: 25%;
+}
+.operator {
+    width: 100%;
+    height: 100%;
+}
