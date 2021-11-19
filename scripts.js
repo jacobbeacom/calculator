@@ -13,7 +13,8 @@ function add(num1, num2) {
     // takes two integers as input
     // add integer1 and integer2
     // return the result
-    let result = num1 + num2;
+    
+    let result = parseInt(num1, 10) + parseInt(num2, 10);
     return result;
 }
 
@@ -47,7 +48,7 @@ function operate(num1, num2, operator) {
     // evaluate the expression
     // return the result
     if (operator == "+") {
-       return num1 + num2
+       return +num1 + +num2
     } else if (operator == "-") {
        return num1 - num2;
     } else if (operator == "/") {
