@@ -122,7 +122,7 @@ for (let i = 0; i < operatorButtons.length; i++) {
             if (num1 > 999999999999) {
                 disp.textContent = "Result too large to display"
             } else {
-                disp.textContent = result;
+                disp.textContent = num1.toFixed(2);
 }});
 
 //adds an event listener to the clear button and clears all variables as well as both displays of information.
