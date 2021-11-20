@@ -19,10 +19,12 @@ function operate(num1, num2, operator) {
        return +num1 + +num2
     } else if (operator == "-") {
        return num1 - num2;
-    } else if (operator == "/") {
+    } else if (operator == "/" && num2 != 0) {
        return num1 / num2;
     } else if (operator == "*") {
        return num1 * num2;
+    } else {
+        return "Error"
     }
     
 }
@@ -38,33 +40,67 @@ function display(value) {
    let disp =  document.getElementById('display');
    disp.textContent +=  value;
 }
-
-
+const displayContent = document.getElementById('display');
+const equalsButton = document.getElementById('equals');
 const numberButtons = document.getElementsByClassName('number');
+
+//disables the operand buttons if length if display has a length of 12 or greater.
+
+function displayControl() { 
+    let cont = displayContent.textContent; 
+    if (cont.length >= 12) {
+        equalsButton.disabled = true;
+        for (let i = 0; i < numberButtons.length; i++) {
+            numberButtons[i].disabled = true;
+        }
+    }   else {
+        for (let i = 0; i < numberButtons.length; i++) {
+            numberButtons[i].disabled = false;
+    }
+}}
+
+
+
+// adds an event listener to all number buttons and updates the display with the users selection
 
 for (let i = 0; i < numberButtons.length; i++) {
     let buttonValue = numberButtons[i].textContent;
-    let value = parseInt(buttonValue);
-    numberButtons[i].addEventListener('click', () => {
-        display(value);
-    }
-    )};
+        if (numberButtons[i].textContent == ".") {
+            numberButtons[i].addEventListener('click', () => {
+                display(buttonValue);
+                numberButtons[i].disabled = true;
+            })}
+            else {
+            let value = parseInt(buttonValue);
+            numberButtons[i].addEventListener('click', () => {
+                display(value);
+                displayControl();
+            }
+    )}};
+
+
 
 const operatorButtons = document.getElementsByClassName('operator');
 
+// adds event listeners to all operator buttons, re-enables the decimal button, sets the selected operator as the operator variable, and changes both display paragraphs to reflect selections.
+
 for (let i = 0; i < operatorButtons.length; i++) {
     operatorButtons[i].addEventListener('click', () => {
+        equalsButton.disabled = false;
         operator = operatorButtons[i].textContent;
         let disp = document.getElementById('display');
         let altDisp = document.getElementById('previousInput');
         num1 = disp.textContent;
         altDisp.textContent = num1 + " " + operator;
         disp.textContent = "";
+        displayControl();
 })}
 
-const equalsButton = document.getElementById('equals');
+//Takes both number variables and calls the operate function to do the math with the provided inputs.
+
 
     equalsButton.addEventListener('click', () => {
+        numberButtons[9].disabled = false;
         let disp = document.getElementById('display');
         let altDisp = document.getElementById('previousInput');
         num2 = disp.textContent;
@@ -72,12 +108,18 @@ const equalsButton = document.getElementById('equals');
         let newOperator = operator.replace(/["']/g, "");
         let result = operate(num1, num2, newOperator);
         num1 = result;
-        disp.textContent = result;
-});
+            if (num1 > 999999999999) {
+                disp.textContent = "Result too large to display"
+            } else {
+                disp.textContent = result;
+}});
+
+//adds an event listener to the clear button and clears all variables as well as both displays of information.
 
 const clearButton = document.getElementById('clear');
 
     clearButton.addEventListener('click', () => {
+        numberButtons[9].disabled = false;
         let disp = document.getElementById('display');
         let altDisp = document.getElementById('previousInput');
         num1 = null;
@@ -87,4 +129,5 @@ const clearButton = document.getElementById('clear');
         results = null;  
         disp.textContent = "";
         altDisp.textContent = "";
+        displayControl();
     });

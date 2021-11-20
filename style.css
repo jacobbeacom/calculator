@@ -30,21 +30,22 @@ body {
     grid-column-start: 1;
     grid-column-end: 4;
     background-color: snow;
-    display:grid;
-    grid-template-columns: subgrid;
+    display:flex;
+    flex-direction: column;
     padding: 25px 25px 0px 25px;
     border-radius: 30px;
     border: 1px solid black;
+    align-items: flex-end;
+    
 
 }
 
 .display {
     align-self: end;
-    justify-self: right;
     font-size: 40pt;
-    grid-column-start: 1;
-    grid-column-end: 4;
     margin: 0px;
+    width: 347.9px;
+    text-align: right;
 }
 
 #clear {
@@ -55,6 +56,9 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
+    background-color: red;
+    font-size: 36px;
+    color: white;
 }
 
 .numbers {
@@ -109,13 +113,17 @@ li {
     height: 100%;
     border: 1px solid black;
     border-radius: 10px;
+    background-color: orange;
 }
 
 #previousInput {
     grid-column-start: 1;
     grid-column-end: 4;
     justify-self: right;
+    width: 347.9px;
+    text-align: right;
 }
+
 
 #headertext {
     text-align: center;
