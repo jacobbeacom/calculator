@@ -90,11 +90,22 @@ for (let i = 0; i < operatorButtons.length; i++) {
         operator = operatorButtons[i].textContent;
         let disp = document.getElementById('display');
         let altDisp = document.getElementById('previousInput');
-        num1 = disp.textContent;
-        altDisp.textContent = num1 + " " + operator;
-        disp.textContent = "";
-        displayControl();
-})}
+        console.log(disp.textContent);
+        console.log(altDisp.textContent);
+        if (altDisp.textContent != "" && disp.textContent != "") {
+            num1 = altDisp.textContent.replace(operator, "");
+            num2 = disp.textContent;
+            let newOperator = operator.replace(/["']/g, "");
+            let result = operate(num1, num2, newOperator);
+            altDisp.textContent = result + " " + operator;
+            num1 = result;
+            disp.textContent = "";
+        } else {
+            num1 = disp.textContent;
+            altDisp.textContent = num1;
+            disp.textContent = "";
+            displayControl();
+}})}
 
 //Takes both number variables and calls the operate function to do the math with the provided inputs.
 
