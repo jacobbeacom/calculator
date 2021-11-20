@@ -9,38 +9,6 @@ let displayValue;
 let results;
 
 
-function add(num1, num2) {
-    // takes two integers as input
-    // add integer1 and integer2
-    // return the result
-    
-    let result = parseInt(num1, 10) + parseInt(num2, 10);
-    return result;
-}
-
-function subtract(num1, num2) {
-    // takes two integers as input
-    // Subtracts integer2 from integer1
-    // return the result
-    let result = num1 - num2;
-    return result;
-}
-
-function multiply(num1, num2) {
-    // takes two integers as input
-    // multiplies integer 1 and integer 2
-    // return the result
-    let result = num1 * num2;
-    return result;
-}
-
-function divide(num1, num2) {
-    // takes two integers as input
-    // divides integer 1 by integer 2
-    // return the result
-    let result = num1 / num2;
-    return result;
-}
 
 function operate(num1, num2, operator) {
     // takes the two integers and the operator function as input
@@ -71,13 +39,6 @@ function display(value) {
    disp.textContent +=  value;
 }
 
-function operatorDisplay(operator) {
-    let disp = document.getElementById('display');
-    num1 = disp.textContent;
-    let prevInp = document.getElementById('previousInput');
-    prevInp.textContent = num1 + ' ' + operator;
-}
-
 
 const numberButtons = document.getElementsByClassName('number');
 
@@ -104,13 +65,26 @@ for (let i = 0; i < operatorButtons.length; i++) {
 const equalsButton = document.getElementById('equals');
 
     equalsButton.addEventListener('click', () => {
-    let disp = document.getElementById('display');
-    let altDisp = document.getElementById('previousInput');
-    num2 = disp.textContent;
-    altDisp.textContent = "";
-    let newOperator = operator.replace(/["']/g, "");
-    let result = operate(num1, num2, newOperator);
-    num1 = result;
-    disp.textContent = result;
-    
+        let disp = document.getElementById('display');
+        let altDisp = document.getElementById('previousInput');
+        num2 = disp.textContent;
+        altDisp.textContent = "";
+        let newOperator = operator.replace(/["']/g, "");
+        let result = operate(num1, num2, newOperator);
+        num1 = result;
+        disp.textContent = result;
 });
+
+const clearButton = document.getElementById('clear');
+
+    clearButton.addEventListener('click', () => {
+        let disp = document.getElementById('display');
+        let altDisp = document.getElementById('previousInput');
+        num1 = null;
+        num2 = null;
+        operator = null;
+        newOperator = null;
+        results = null;  
+        disp.textContent = "";
+        altDisp.textContent = "";
+    });
