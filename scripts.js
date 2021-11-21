@@ -19,7 +19,7 @@ function operate(num1, num2, operator) {
        return +num1 + +num2
     } else if (operator == "-") {
        return num1 - num2;
-    } else if (operator == "/" && num2 != 0) {
+    } else if (operator == "/" && num2 != "0") {
        return num1 / num2;
     } else if (operator == "*") {
        return num1 * num2;
@@ -122,7 +122,7 @@ for (let i = 0; i < operatorButtons.length; i++) {
             if (num1 > 999999999999) {
                 disp.textContent = "Result too large to display"
             } else {
-                disp.textContent = num1.toFixed(2);
+                disp.textContent = num1;
 }});
 
 //adds an event listener to the clear button and clears all variables as well as both displays of information.
